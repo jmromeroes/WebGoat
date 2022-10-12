@@ -73,6 +73,7 @@ public class Salaries {
         XPathFactory factory = XPathFactory.newInstance();
         XPath path = factory.newXPath();
         try (InputStream is = new FileInputStream(d)) {
+        
             InputSource inputSource = new InputSource(is);
 
             StringBuffer sb = new StringBuffer();
