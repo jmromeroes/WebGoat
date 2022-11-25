@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /home/webgoat 
+cd /home/webgoat || exit 
 service nginx start
 sleep 1
 echo "Starting WebGoat..."
@@ -19,7 +19,7 @@ java \
 sleep 10
 
 echo "Starting WebWolf..."
-java -Duser.home=/home/webgoat -Dfile.encoding=UTF-8 -jar webwolf.jar --webgoat.build.version=$1 --server.address=0.0.0.0 > webwolf.log &
+java -Duser.home=/home/webgoat -Dfile.encoding=UTF-8 -jar webwolf.jar --webgoat.build.version="$1" --server.address=0.0.0.0 > webwolf.log &
 
 echo "Browse to http://localhost to get started" >> webgoat.log
 
